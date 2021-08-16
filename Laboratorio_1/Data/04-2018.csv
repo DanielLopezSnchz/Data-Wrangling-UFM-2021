@@ -1,0 +1,197 @@
+COD_VIAJE,CLIENTE,UBICACION,CANTIDAD,PILOTO, Q ,CREDITO,UNIDAD
+10000578,UNIVERSIDAD FRANCISCO MARROQUIN/Despacho a cliente,76001,1049,Angel Valdez Alegria, $262.25 ,60,Camion Grande
+10000579,POLLO PINULITO|||FALTANTE,76001,533,Felipe Villatoro, $133.25 ,90,Camion Pequeño
+10000580,UBIQUO LABS |||FALTANTE,76002,1788,Hector Giron, $447.00 ,90,Camion Grande
+10000581,CHICHARRONERIA EL RICO COLESTEROL |||Faltante,76001,1987,Luis Jaime Urbano, $496.75 ,60,Camion Grande
+10000582,CHICHARRONERIA EL RICO COLESTEROL |||Faltante,76002,649,Felipe Villatoro, $162.25 ,30,Camion Pequeño
+10000583,HOSPITAL LAS AMERICAS,76002,924,Hector Aragones Frutos, $231.00 ,30,Camion Pequeño
+10000584,UBIQUO LABS |||FALTANTE,76002,1086,Ismael Rodero Monteagudo, $271.50 ,90,Camion Grande
+10000585,UNIVERSIDAD FRANCISCO MARROQUIN/Despacho a cliente,76002,1505,Angel Valdez Alegria, $376.25 ,30,Camion Grande
+10000586,ABARROTERIA EBENEZER/Despacho a cliente,76001,1532,Luis Jaime Urbano, $383.00 ,90,Camion Grande
+10000587,EL PINCHE OBELISCO |||Faltante,76002,502,Pedro Alvarez Parejo, $125.50 ,90,Camion Pequeño
+10000588,BAR LA OFICINA,76001,1108,Hector Giron, $277.00 ,90,Camion Grande
+10000589,EL PINCHE OBELISCO / Despacho a cliente,76001,1197,Luis Jaime Urbano, $299.25 ,90,Camion Grande
+10000590,TIENDA LA BENDICION / Despacho a cliente,76002,761,Fernando Mariano Berrio, $190.25 ,30,Camion Pequeño
+10000591,ABARROTERIA EBENEZER/Despacho a cliente,76001,1274,Hector Giron, $318.50 ,30,Camion Grande
+10000592,TAQUERIA EL CHINITO |||Faltante,76001,826,Pedro Alvarez Parejo, $206.50 ,30,Camion Pequeño
+10000593,UBIQUO LABS |||FALTANTE,76001,485,Hector Aragones Frutos, $121.25 ,60,Panel
+10000594,EL GALLO NEGRO |||DEVOLUCION,76001,311,Pedro Alvarez Parejo, $77.75 ,90,Panel
+10000595,TAQUERIA EL CHINITO,76002,1457,Pedro Alvarez Parejo, $364.25 ,60,Camion Grande
+10000596,UBIQUO LABS,76001,410,Luis Jaime Urbano, $102.50 ,30,Panel
+10000597,POLLO PINULITO/Despacho a cliente,76002,1679,Fernando Mariano Berrio, $419.75 ,90,Camion Grande
+10000598,EL PINCHE OBELISCO |||Faltante,76002,700,Pedro Alvarez Parejo, $175.00 ,60,Camion Pequeño
+10000599,HOSPITAL LAS AMERICAS,76002,809,Pedro Alvarez Parejo, $202.25 ,60,Camion Pequeño
+10000600,POLLO PINULITO/Despacho a cliente,76002,529,Pedro Alvarez Parejo, $132.25 ,90,Camion Pequeño
+10000601,EL PINCHE OBELISCO |||Faltante,76001,1078,Hector Aragones Frutos, $269.50 ,90,Camion Grande
+10000602,CHICHARRONERIA EL RICO COLESTEROL |||Faltante,76001,1086,Angel Valdez Alegria, $271.50 ,60,Camion Grande
+10000603,EL PINCHE OBELISCO |||Faltante,76001,465,Felipe Villatoro, $116.25 ,90,Panel
+10000604,UBIQUO LABS,76001,291,Hector Aragones Frutos, $72.75 ,30,Panel
+10000605,UBIQUO LABS |||FALTANTE,76001,1684,Hector Giron, $421.00 ,60,Camion Grande
+10000606,UNIVERSIDAD FRANCISCO MARROQUIN/Despacho a cliente,76002,455,Ismael Rodero Monteagudo, $113.75 ,60,Panel
+10000607,BAR LA OFICINA,76001,1131,Pedro Alvarez Parejo, $282.75 ,60,Camion Grande
+10000608,HOSPITAL LAS AMERICAS,76002,1104,Felipe Villatoro, $276.00 ,90,Camion Grande
+10000609,HOSPITAL LAS AMERICAS,76001,1827,Hector Giron, $456.75 ,90,Camion Grande
+10000610,TAQUERIA EL CHINITO,76001,504,Ismael Rodero Monteagudo, $126.00 ,30,Camion Pequeño
+10000611,ABARROTERIA EBENEZER/Despacho a cliente,76001,1016,Felipe Villatoro, $254.00 ,60,Camion Grande
+10000612,"SPORTA, S.A./Despacho a cliente |||Faltante",76001,461,Angel Valdez Alegria, $115.25 ,90,Panel
+10000613,POLLO PINULITO/Despacho a cliente,76001,1368,Hector Giron, $342.00 ,30,Camion Grande
+10000614,EL PINCHE OBELISCO / Despacho a cliente,76001,1049,Pedro Alvarez Parejo, $262.25 ,60,Camion Grande
+10000615,"SPORTA, S.A./Despacho a cliente |||Faltante",76002,718,Fernando Mariano Berrio, $179.50 ,60,Camion Pequeño
+10000616,EL GALLO NEGRO |||DEVOLUCION,76001,1317,Angel Valdez Alegria, $329.25 ,90,Camion Grande
+10000617,UBIQUO LABS |||FALTANTE,76002,1945,Fernando Mariano Berrio, $486.25 ,90,Camion Grande
+10000618,UBIQUO LABS,76001,247,Hector Giron, $61.75 ,30,Panel
+10000619,BAR LA OFICINA,76001,980,Hector Giron, $245.00 ,90,Camion Pequeño
+10000620,BAR LA OFICINA,76002,326,Juan Francisco Portillo Gomez, $81.50 ,60,Panel
+10000621,POLLO PINULITO|||FALTANTE,76002,1956,Pedro Alvarez Parejo, $489.00 ,30,Camion Grande
+10000622,POLLO PINULITO/Despacho a cliente,76002,902,Fernando Mariano Berrio, $225.50 ,60,Camion Pequeño
+10000623,TIENDA LA BENDICION / Despacho a cliente,76001,1147,Angel Valdez Alegria, $286.75 ,60,Camion Grande
+10000624,TAQUERIA EL CHINITO,76002,539,Luis Jaime Urbano, $134.75 ,90,Camion Pequeño
+10000625,POLLO PINULITO/Despacho a cliente,76002,1113,Angel Valdez Alegria, $278.25 ,60,Camion Grande
+10000626,UBIQUO LABS |||FALTANTE,76001,1103,Pedro Alvarez Parejo, $275.75 ,90,Camion Grande
+10000627,UBIQUO LABS,76001,303,Luis Jaime Urbano, $75.75 ,60,Panel
+10000628,CHICHARRONERIA EL RICO COLESTEROL |||Faltante,76001,1546,Fernando Mariano Berrio, $386.50 ,60,Camion Grande
+10000629,HOSPITAL ROOSEVELT / Despacho a cliente ,76002,294,Pedro Alvarez Parejo, $73.50 ,90,Panel
+10000630,UNIVERSIDAD FRANCISCO MARROQUIN/Despacho a cliente,76001,1694,Fernando Mariano Berrio, $423.50 ,30,Camion Grande
+10000631,"SPORTA, S.A./Despacho a cliente |||Faltante",76001,1416,Hector Giron, $354.00 ,60,Camion Grande
+10000632,UNIVERSIDAD FRANCISCO MARROQUIN/Despacho a cliente,76002,1481,Hector Aragones Frutos, $370.25 ,30,Camion Grande
+10000633,POLLO PINULITO|||FALTANTE,76001,1838,Luis Jaime Urbano, $459.50 ,60,Camion Grande
+10000634,POLLO PINULITO/Despacho a cliente,76002,1487,Luis Jaime Urbano, $371.75 ,60,Camion Grande
+10000635,UNIVERSIDAD FRANCISCO MARROQUIN/Despacho a cliente,76001,1074,Hector Aragones Frutos, $268.50 ,90,Camion Grande
+10000636,ABARROTERIA EBENEZER/Despacho a cliente,76001,1741,Hector Aragones Frutos, $435.25 ,60,Camion Grande
+10000637,EL GALLO NEGRO |||DEVOLUCION,76002,1458,Hector Aragones Frutos, $364.50 ,60,Camion Grande
+10000638,POLLO PINULITO/Despacho a cliente,76001,813,Fernando Mariano Berrio, $203.25 ,90,Camion Pequeño
+10000639,UNIVERSIDAD FRANCISCO MARROQUIN/Despacho a cliente,76001,856,Luis Jaime Urbano, $214.00 ,60,Camion Pequeño
+10000640,ABARROTERIA EBENEZER/Despacho a cliente,76002,650,Felipe Villatoro, $162.50 ,30,Camion Pequeño
+10000641,BAR LA OFICINA,76002,567,Angel Valdez Alegria, $141.75 ,30,Camion Pequeño
+10000642,EL GALLO NEGRO / Despacho a cliente,76001,1256,Hector Aragones Frutos, $314.00 ,30,Camion Grande
+10000643,TAQUERIA EL CHINITO |||Faltante,76001,218,Luis Jaime Urbano, $54.50 ,90,Panel
+10000644,TAQUERIA EL CHINITO,76001,867,Pedro Alvarez Parejo, $216.75 ,30,Camion Pequeño
+10000645,CHICHARRONERIA EL RICO COLESTEROL |||Faltante,76001,913,Ismael Rodero Monteagudo, $228.25 ,60,Camion Pequeño
+10000646,UBIQUO LABS,76002,1512,Angel Valdez Alegria, $378.00 ,60,Camion Grande
+10000647,BAR LA OFICINA,76002,203,Hector Giron, $50.75 ,90,Panel
+10000648,EL GALLO NEGRO |||DEVOLUCION,76001,1012,Angel Valdez Alegria, $253.00 ,60,Camion Grande
+10000649,HOSPITAL ROOSEVELT / Despacho a cliente ,76001,1122,Hector Aragones Frutos, $280.50 ,30,Camion Grande
+10000650,EL GALLO NEGRO |||DEVOLUCION,76002,1880,Hector Giron, $470.00 ,90,Camion Grande
+10000651,UBIQUO LABS,76002,751,Angel Valdez Alegria, $187.75 ,60,Camion Pequeño
+10000652,UBIQUO LABS |||FALTANTE,76001,1886,Pedro Alvarez Parejo, $471.50 ,60,Camion Grande
+10000653,UBIQUO LABS,76002,363,Hector Giron, $90.75 ,90,Panel
+10000654,ABARROTERIA EBENEZER/Despacho a cliente,76001,566,Juan Francisco Portillo Gomez, $141.50 ,30,Camion Pequeño
+10000655,EL PINCHE OBELISCO / Despacho a cliente,76002,1330,Felipe Villatoro, $332.50 ,90,Camion Grande
+10000656,POLLO PINULITO/Despacho a cliente,76002,1385,Juan Francisco Portillo Gomez, $346.25 ,90,Camion Grande
+10000657,HOSPITAL ROOSEVELT / Despacho a cliente ,76002,1880,Luis Jaime Urbano, $470.00 ,90,Camion Grande
+10000658,EL GALLO NEGRO |||DEVOLUCION,76002,1704,Angel Valdez Alegria, $426.00 ,90,Camion Grande
+10000659,ABARROTERIA EBENEZER/Despacho a cliente,76002,214,Ismael Rodero Monteagudo, $53.50 ,60,Panel
+10000660,HOSPITAL ROOSEVELT / Despacho a cliente ,76001,665,Fernando Mariano Berrio, $166.25 ,60,Camion Pequeño
+10000661,"SPORTA, S.A./Despacho a cliente |||Faltante",76001,1950,Hector Aragones Frutos, $487.50 ,90,Camion Grande
+10000662,HOSPITAL ROOSEVELT / Despacho a cliente ,76002,500,Angel Valdez Alegria, $125.00 ,90,Panel
+10000663,EL GALLO NEGRO / Despacho a cliente,76002,990,Hector Giron, $247.50 ,90,Camion Pequeño
+10000664,TAQUERIA EL CHINITO,76002,1551,Hector Aragones Frutos, $387.75 ,30,Camion Grande
+10000665,UBIQUO LABS,76002,613,Fernando Mariano Berrio, $153.25 ,60,Camion Pequeño
+10000666,"SPORTA, S.A./Despacho a cliente |||Faltante",76001,1571,Fernando Mariano Berrio, $392.75 ,60,Camion Grande
+10000667,EL GALLO NEGRO / Despacho a cliente,76001,794,Fernando Mariano Berrio, $198.50 ,60,Camion Pequeño
+10000668,UBIQUO LABS,76002,1707,Felipe Villatoro, $426.75 ,60,Camion Grande
+10000669,UNIVERSIDAD FRANCISCO MARROQUIN/Despacho a cliente,76002,1343,Hector Giron, $335.75 ,60,Camion Grande
+10000670,EL PINCHE OBELISCO |||Faltante,76002,1022,Hector Giron, $255.50 ,90,Camion Grande
+10000671,EL PINCHE OBELISCO |||Faltante,76002,413,Ismael Rodero Monteagudo, $103.25 ,60,Panel
+10000672,TAQUERIA EL CHINITO |||Faltante,76002,690,Angel Valdez Alegria, $172.50 ,90,Camion Pequeño
+10000673,TAQUERIA EL CHINITO,76002,576,Pedro Alvarez Parejo, $144.00 ,30,Camion Pequeño
+10000674,UNIVERSIDAD FRANCISCO MARROQUIN/Despacho a cliente,76002,769,Juan Francisco Portillo Gomez, $192.25 ,60,Camion Pequeño
+10000675,EL PINCHE OBELISCO |||Faltante,76002,735,Pedro Alvarez Parejo, $183.75 ,30,Camion Pequeño
+10000676,"SPORTA, S.A./Despacho a cliente |||Faltante",76002,578,Fernando Mariano Berrio, $144.50 ,30,Camion Pequeño
+10000677,HOSPITAL LAS AMERICAS,76002,1126,Juan Francisco Portillo Gomez, $281.50 ,30,Camion Grande
+10000678,EL GALLO NEGRO / Despacho a cliente,76002,907,Hector Giron, $226.75 ,90,Camion Pequeño
+10000679,UNIVERSIDAD FRANCISCO MARROQUIN/Despacho a cliente,76001,1842,Fernando Mariano Berrio, $460.50 ,90,Camion Grande
+10000680,EL PINCHE OBELISCO / Despacho a cliente,76002,651,Hector Giron, $162.75 ,90,Camion Pequeño
+10000681,UBIQUO LABS,76001,701,Fernando Mariano Berrio, $175.25 ,90,Camion Pequeño
+10000682,UBIQUO LABS,76002,733,Luis Jaime Urbano, $183.25 ,60,Camion Pequeño
+10000683,CHICHARRONERIA EL RICO COLESTEROL |||Faltante,76002,1571,Hector Aragones Frutos, $392.75 ,60,Camion Grande
+10000684,ABARROTERIA EBENEZER/Despacho a cliente,76002,405,Hector Aragones Frutos, $101.25 ,30,Panel
+10000685,EL PINCHE OBELISCO |||Faltante,76001,872,Angel Valdez Alegria, $218.00 ,30,Camion Pequeño
+10000686,POLLO PINULITO/Despacho a cliente,76001,1167,Fernando Mariano Berrio, $291.75 ,60,Camion Grande
+10000687,EL GALLO NEGRO |||DEVOLUCION,76002,1867,Ismael Rodero Monteagudo, $466.75 ,60,Camion Grande
+10000688,EL PINCHE OBELISCO / Despacho a cliente,76002,1975,Pedro Alvarez Parejo, $493.75 ,30,Camion Grande
+10000689,"SPORTA, S.A./Despacho a cliente |||Faltante",76001,900,Ismael Rodero Monteagudo, $225.00 ,60,Camion Pequeño
+10000690,EL GALLO NEGRO |||DEVOLUCION,76001,1400,Juan Francisco Portillo Gomez, $350.00 ,30,Camion Grande
+10000691,EL GALLO NEGRO / Despacho a cliente,76002,272,Pedro Alvarez Parejo, $68.00 ,90,Panel
+10000692,TAQUERIA EL CHINITO |||Faltante,76002,358,Juan Francisco Portillo Gomez, $89.50 ,60,Panel
+10000693,UBIQUO LABS,76002,1951,Juan Francisco Portillo Gomez, $487.75 ,60,Camion Grande
+10000694,EL GALLO NEGRO / Despacho a cliente,76002,807,Hector Aragones Frutos, $201.75 ,30,Camion Pequeño
+10000695,HOSPITAL ROOSEVELT / Despacho a cliente ,76002,1748,Angel Valdez Alegria, $437.00 ,30,Camion Grande
+10000696,EL PINCHE OBELISCO |||Faltante,76001,1485,Hector Aragones Frutos, $371.25 ,60,Camion Grande
+10000697,EL PINCHE OBELISCO / Despacho a cliente,76002,1150,Ismael Rodero Monteagudo, $287.50 ,60,Camion Grande
+10000698,ABARROTERIA EBENEZER/Despacho a cliente,76002,215,Angel Valdez Alegria, $53.75 ,90,Panel
+10000699,EL PINCHE OBELISCO / Despacho a cliente,76001,359,Hector Giron, $89.75 ,60,Panel
+10000700,EL PINCHE OBELISCO / Despacho a cliente,76001,856,Fernando Mariano Berrio, $214.00 ,60,Camion Pequeño
+10000701,HOSPITAL ROOSEVELT / Despacho a cliente ,76001,298,Angel Valdez Alegria, $74.50 ,90,Panel
+10000702,POLLO PINULITO/Despacho a cliente,76002,918,Ismael Rodero Monteagudo, $229.50 ,60,Camion Pequeño
+10000703,POLLO PINULITO/Despacho a cliente,76002,1093,Juan Francisco Portillo Gomez, $273.25 ,60,Camion Grande
+10000704,UNIVERSIDAD FRANCISCO MARROQUIN/Despacho a cliente,76001,1713,Juan Francisco Portillo Gomez, $428.25 ,30,Camion Grande
+10000705,EL GALLO NEGRO |||DEVOLUCION,76001,1763,Angel Valdez Alegria, $440.75 ,60,Camion Grande
+10000706,BAR LA OFICINA,76002,1809,Felipe Villatoro, $452.25 ,30,Camion Grande
+10000707,TAQUERIA EL CHINITO |||Faltante,76001,1349,Ismael Rodero Monteagudo, $337.25 ,90,Camion Grande
+10000708,EL GALLO NEGRO / Despacho a cliente,76002,511,Fernando Mariano Berrio, $127.75 ,30,Camion Pequeño
+10000709,POLLO PINULITO/Despacho a cliente,76001,718,Felipe Villatoro, $179.50 ,30,Camion Pequeño
+10000710,BAR LA OFICINA,76001,930,Felipe Villatoro, $232.50 ,60,Camion Pequeño
+10000711,UBIQUO LABS,76001,272,Fernando Mariano Berrio, $68.00 ,30,Panel
+10000712,EL PINCHE OBELISCO / Despacho a cliente,76001,1804,Pedro Alvarez Parejo, $451.00 ,30,Camion Grande
+10000713,EL GALLO NEGRO |||DEVOLUCION,76001,1373,Fernando Mariano Berrio, $343.25 ,30,Camion Grande
+10000714,EL GALLO NEGRO |||DEVOLUCION,76001,800,Felipe Villatoro, $200.00 ,60,Camion Pequeño
+10000715,CHICHARRONERIA EL RICO COLESTEROL |||Faltante,76001,1638,Pedro Alvarez Parejo, $409.50 ,60,Camion Grande
+10000716,CHICHARRONERIA EL RICO COLESTEROL |||Faltante,76002,591,Angel Valdez Alegria, $147.75 ,30,Camion Pequeño
+10000717,BAR LA OFICINA,76002,823,Juan Francisco Portillo Gomez, $205.75 ,90,Camion Pequeño
+10000718,"SPORTA, S.A./Despacho a cliente |||Faltante",76001,1302,Angel Valdez Alegria, $325.50 ,30,Camion Grande
+10000719,TIENDA LA BENDICION / Despacho a cliente,76002,889,Pedro Alvarez Parejo, $222.25 ,90,Camion Pequeño
+10000720,BAR LA OFICINA,76002,1496,Fernando Mariano Berrio, $374.00 ,60,Camion Grande
+10000721,CHICHARRONERIA EL RICO COLESTEROL |||Faltante,76001,1394,Hector Aragones Frutos, $348.50 ,60,Camion Grande
+10000722,"SPORTA, S.A./Despacho a cliente |||Faltante",76002,1905,Hector Aragones Frutos, $476.25 ,90,Camion Grande
+10000723,TIENDA LA BENDICION / Despacho a cliente,76002,218,Luis Jaime Urbano, $54.50 ,60,Panel
+10000724,UNIVERSIDAD FRANCISCO MARROQUIN/Despacho a cliente,76001,1445,Ismael Rodero Monteagudo, $361.25 ,90,Camion Grande
+10000725,POLLO PINULITO|||FALTANTE,76002,1581,Ismael Rodero Monteagudo, $395.25 ,90,Camion Grande
+10000726,TAQUERIA EL CHINITO,76001,1407,Fernando Mariano Berrio, $351.75 ,90,Camion Grande
+10000727,"SPORTA, S.A./Despacho a cliente |||Faltante",76001,557,Felipe Villatoro, $139.25 ,90,Camion Pequeño
+10000728,UBIQUO LABS,76002,1636,Luis Jaime Urbano, $409.00 ,30,Camion Grande
+10000729,CHICHARRONERIA EL RICO COLESTEROL |||Faltante,76001,1784,Hector Giron, $446.00 ,60,Camion Grande
+10000730,UBIQUO LABS,76001,718,Hector Aragones Frutos, $179.50 ,30,Camion Pequeño
+10000731,EL PINCHE OBELISCO |||Faltante,76001,257,Hector Aragones Frutos, $64.25 ,60,Panel
+10000732,UBIQUO LABS,76001,425,Fernando Mariano Berrio, $106.25 ,90,Panel
+10000733,EL GALLO NEGRO / Despacho a cliente,76001,685,Hector Aragones Frutos, $171.25 ,90,Camion Pequeño
+10000734,UBIQUO LABS,76001,861,Luis Jaime Urbano, $215.25 ,60,Camion Pequeño
+10000735,POLLO PINULITO/Despacho a cliente,76002,1024,Hector Giron, $256.00 ,30,Camion Grande
+10000736,EL GALLO NEGRO |||DEVOLUCION,76001,1180,Hector Aragones Frutos, $295.00 ,30,Camion Grande
+10000737,"SPORTA, S.A./Despacho a cliente |||Faltante",76001,1595,Felipe Villatoro, $398.75 ,30,Camion Grande
+10000738,EL GALLO NEGRO |||DEVOLUCION,76001,237,Angel Valdez Alegria, $59.25 ,90,Panel
+10000739,HOSPITAL ROOSEVELT / Despacho a cliente ,76001,227,Luis Jaime Urbano, $56.75 ,90,Panel
+10000740,HOSPITAL ROOSEVELT / Despacho a cliente ,76001,1695,Juan Francisco Portillo Gomez, $423.75 ,30,Camion Grande
+10000741,CHICHARRONERIA EL RICO COLESTEROL |||Faltante,76001,1666,Felipe Villatoro, $416.50 ,90,Camion Grande
+10000742,UNIVERSIDAD FRANCISCO MARROQUIN/Despacho a cliente,76001,914,Hector Giron, $228.50 ,60,Camion Pequeño
+10000743,POLLO PINULITO|||FALTANTE,76001,1168,Felipe Villatoro, $292.00 ,60,Camion Grande
+10000744,UBIQUO LABS |||FALTANTE,76001,1958,Ismael Rodero Monteagudo, $489.50 ,60,Camion Grande
+10000745,EL PINCHE OBELISCO / Despacho a cliente,76001,318,Fernando Mariano Berrio, $79.50 ,30,Panel
+10000746,BAR LA OFICINA,76002,1637,Juan Francisco Portillo Gomez, $409.25 ,30,Camion Grande
+10000747,ABARROTERIA EBENEZER/Despacho a cliente,76001,923,Ismael Rodero Monteagudo, $230.75 ,60,Camion Pequeño
+10000748,UNIVERSIDAD FRANCISCO MARROQUIN/Despacho a cliente,76001,1346,Luis Jaime Urbano, $336.50 ,30,Camion Grande
+10000749,HOSPITAL LAS AMERICAS,76002,817,Luis Jaime Urbano, $204.25 ,90,Camion Pequeño
+10000750,UBIQUO LABS |||FALTANTE,76001,1948,Hector Aragones Frutos, $487.00 ,90,Camion Grande
+10000751,POLLO PINULITO/Despacho a cliente,76001,1293,Hector Aragones Frutos, $323.25 ,30,Camion Grande
+10000752,CHICHARRONERIA EL RICO COLESTEROL |||Faltante,76001,300,Hector Aragones Frutos, $75.00 ,30,Panel
+10000753,UNIVERSIDAD FRANCISCO MARROQUIN/Despacho a cliente,76001,1908,Hector Giron, $477.00 ,30,Camion Grande
+10000754,TAQUERIA EL CHINITO |||Faltante,76002,946,Luis Jaime Urbano, $236.50 ,60,Camion Pequeño
+10000755,TAQUERIA EL CHINITO,76002,1494,Fernando Mariano Berrio, $373.50 ,30,Camion Grande
+10000756,TAQUERIA EL CHINITO |||Faltante,76001,269,Angel Valdez Alegria, $67.25 ,90,Panel
+10000757,BAR LA OFICINA,76002,1608,Fernando Mariano Berrio, $402.00 ,60,Camion Grande
+10000758,EL PINCHE OBELISCO / Despacho a cliente,76002,1348,Luis Jaime Urbano, $337.00 ,60,Camion Grande
+10000759,UBIQUO LABS |||FALTANTE,76002,1090,Fernando Mariano Berrio, $272.50 ,60,Camion Grande
+10000760,EL GALLO NEGRO / Despacho a cliente,76002,417,Felipe Villatoro, $104.25 ,90,Panel
+10000761,TAQUERIA EL CHINITO |||Faltante,76001,1748,Juan Francisco Portillo Gomez, $437.00 ,60,Camion Grande
+10000762,HOSPITAL ROOSEVELT / Despacho a cliente ,76002,945,Angel Valdez Alegria, $236.25 ,90,Camion Pequeño
+10000763,BAR LA OFICINA,76002,1823,Luis Jaime Urbano, $455.75 ,60,Camion Grande
+10000764,TAQUERIA EL CHINITO |||Faltante,76002,1805,Felipe Villatoro, $451.25 ,30,Camion Grande
+10000765,UNIVERSIDAD FRANCISCO MARROQUIN/Despacho a cliente,76001,243,Ismael Rodero Monteagudo, $60.75 ,30,Panel
+10000766,EL GALLO NEGRO / Despacho a cliente,76002,1198,Juan Francisco Portillo Gomez, $299.50 ,90,Camion Grande
+10000767,EL PINCHE OBELISCO |||Faltante,76001,630,Hector Aragones Frutos, $157.50 ,30,Camion Pequeño
+10000768,UNIVERSIDAD FRANCISCO MARROQUIN/Despacho a cliente,76002,218,Felipe Villatoro, $54.50 ,90,Panel
+10000769,EL PINCHE OBELISCO |||Faltante,76002,239,Pedro Alvarez Parejo, $59.75 ,30,Panel
+10000770,ABARROTERIA EBENEZER/Despacho a cliente,76002,1585,Ismael Rodero Monteagudo, $396.25 ,30,Camion Grande
+10000771,EL GALLO NEGRO |||DEVOLUCION,76002,1640,Hector Aragones Frutos, $410.00 ,60,Camion Grande
+10000772,"SPORTA, S.A./Despacho a cliente |||Faltante",76002,723,Hector Giron, $180.75 ,30,Camion Pequeño
+10000773,BAR LA OFICINA,76002,766,Ismael Rodero Monteagudo, $191.50 ,90,Camion Pequeño
