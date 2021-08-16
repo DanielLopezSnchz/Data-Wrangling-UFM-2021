@@ -1,0 +1,119 @@
+
+###3 Ejercicio 1 ####
+library(readr)
+library(zoo)
+library(dplyr)
+X01_2018 <- read_csv("Data/01-2018.csv")
+X01_2018$FECHA <- as.yearmon("2018-01")
+X01_2018 <- na.omit(X01_2018)
+X01_2018 <- select(.data = X01_2018, COD_VIAJE,
+                   CLIENTE,UBICACION,CANTIDAD,PILOTO,
+                   Q,CREDITO,UNIDAD,FECHA)
+
+X02_2018 <- read_csv("Data/02-2018.csv")
+X02_2018$FECHA <- as.yearmon("2018-02")
+X02_2018 <- na.omit(X02_2018)
+X02_2018 <- select(.data = X02_2018, COD_VIAJE,
+                   CLIENTE,UBICACION,CANTIDAD,PILOTO,
+                   Q,CREDITO,UNIDAD,FECHA)
+
+X03_2018 <- read_csv("Data/03-2018.csv")
+X03_2018$FECHA <- as.yearmon("2018-03")
+X03_2018 <- na.omit(X03_2018)
+X03_2018 <- select(.data = X03_2018, COD_VIAJE,
+                   CLIENTE,UBICACION,CANTIDAD,PILOTO,
+                   Q,CREDITO,UNIDAD,FECHA)
+
+X04_2018 <- read_csv("Data/04-2018.csv")
+X04_2018$FECHA <- as.yearmon("2018-04")
+X04_2018 <- na.omit(X04_2018)
+X04_2018 <- select(.data = X04_2018, COD_VIAJE,
+                   CLIENTE,UBICACION,CANTIDAD,PILOTO,
+                   Q,CREDITO,UNIDAD,FECHA)
+
+X05_2018 <- read_csv("Data/05-2018.csv")
+X05_2018$FECHA <- as.yearmon("2018-05")
+X05_2018 <- na.omit(X05_2018)
+X05_2018 <- select(.data = X05_2018, COD_VIAJE,
+                   CLIENTE,UBICACION,CANTIDAD,PILOTO,
+                   Q,CREDITO,UNIDAD,FECHA)
+
+X06_2018 <- read_csv("Data/06-2018.csv")
+X06_2018$FECHA <- as.yearmon("2018-06")
+X06_2018 <- na.omit(X06_2018)
+X06_2018 <- select(.data = X06_2018, COD_VIAJE,
+                   CLIENTE,UBICACION,CANTIDAD,PILOTO,
+                   Q,CREDITO,UNIDAD,FECHA)
+
+X07_2018 <- read_csv("Data/07-2018.csv")
+X07_2018$FECHA <- as.yearmon("2018-07")
+X07_2018 <- select(.data = X07_2018, COD_VIAJE,
+                   CLIENTE,UBICACION,CANTIDAD,PILOTO,
+                   Q,CREDITO,UNIDAD,FECHA)
+X07_2018 <- na.omit(X07_2018)
+
+X08_2018 <- read_csv("Data/08-2018.csv")
+X08_2018$FECHA <- as.yearmon("2018-08")
+X08_2018 <- select(.data = X08_2018, COD_VIAJE,
+                   CLIENTE,UBICACION,CANTIDAD,PILOTO,
+                   Q,CREDITO,UNIDAD,FECHA)
+X08_2018 <- na.omit(X08_2018)
+
+X09_2018 <- read_csv("Data/09-2018.csv")
+X09_2018$FECHA <- as.yearmon("2018-09")
+X09_2018 <- select(.data = X09_2018, COD_VIAJE,
+                   CLIENTE,UBICACION,CANTIDAD,PILOTO,
+                   Q,CREDITO,UNIDAD,FECHA)
+X09_2018 <- na.omit(X09_2018)
+
+X10_2018 <- read_csv("Data/10-2018.csv")
+X10_2018$FECHA <- as.yearmon("2018-10")
+X10_2018 <- select(.data = X10_2018, COD_VIAJE,
+                   CLIENTE,UBICACION,CANTIDAD,PILOTO,
+                   Q,CREDITO,UNIDAD,FECHA)
+X10_2018 <- na.omit(X10_2018)
+
+X11_2018 <- read_csv("Data/11-2018.csv")
+X11_2018$FECHA <- as.yearmon("2018-11")
+X11_2018 <- select(.data = X11_2018, COD_VIAJE,
+                   CLIENTE,UBICACION,CANTIDAD,PILOTO,
+                   Q,CREDITO,UNIDAD,FECHA)
+X11_2018 <- na.omit(X11_2018)
+
+Tabla_final <- rbind(X01_2018,X02_2018,X03_2018,X04_2018,
+                     X05_2018,X06_2018,X07_2018,X08_2018,
+                     X09_2018,X10_2018,X11_2018)
+# exportando archivo
+write.csv(x = Tabla_final, file = "Tabla_final.csv", row.names = FALSE)
+
+
+######## Ejercicio 2 ######################
+
+vector1 <- c(1,2,3,3,4,5,3,6,7,3)
+vector2 <- c(3,2,5,5,5,7,6,8,5,3)
+vector3 <- c(15,3,4,15,6,3,3,15,15,1)
+
+#---- funcion de moda sacada de Stackoverflow -----#
+Mode <- function(x) {
+  ux <- unique(x)
+  ux[which.max(tabulate(match(x, ux)))]
+}
+
+lista_vectores <- list(vector1, vector2, vector3)
+lapply(lista_vectores, Mode)
+
+
+####### Ejercicio 3 #####################
+
+Parque_veh_enero2019 <- read_delim(file = "Data/INE_PARQUE_VEHICULAR_080219.txt",delim = "|")
+head(Parque_veh_enero2019)
+
+
+
+
+
+
+
+
+
+
