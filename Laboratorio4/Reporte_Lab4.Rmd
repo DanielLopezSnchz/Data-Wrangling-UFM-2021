@@ -1,0 +1,167 @@
+---
+title: "Laboratorio 4"
+output: html_notebook
+---
+
+# Distribuidora del Sur, S.A.
+
+```{r importing data and packages, eval=TRUE, echo=FALSE, message=FALSE, results='hide'}
+library(dplyr)
+library(highcharter)
+library(lubridate)
+library(ggplot2)
+
+df <- read.csv("tabla_completa.csv", sep = ";")
+```
+
+
+```{r Data cleaning, eval=TRUE, echo=FALSE, message=FALSE, results='hide'}
+df <- df %>% 
+  mutate(UBICACION = as.factor(UBICACION),
+         CLIENTE = as.factor(CLIENTE),
+         PILOTO = as.factor(PILOTO),
+         CREDITO = as.factor(CREDITO),
+         UNIDAD = as.factor(UNIDAD),
+         MES = as.factor(MES),
+         ANIO = as.factor(ANIO))
+
+levels(df$UNIDAD)[2] <- 'Camion Pequenio'
+```
+
+## Análisis de facturación mensual
+
+La facturación mensual del 2017 pareciera uniforme, sin embargo se registraron caídas en los meses de marzo, junio, y septiembre.
+```{r}
+ingreso_mensual <- df %>% 
+  group_by(ANIO, MES) %>% 
+  filter(TIPO.DE.ENTREGA!='DEVOLUCION') %>% 
+  summarise(FACTURACION = sum(Q))
+
+ingreso_mensual %>% 
+  hchart("column", hcaes(x = MES, y = FACTURACION)) %>% 
+  hc_title(text = "<b>Facturacion mensual<b>") %>% 
+  hc_subtitle(text = "<i>Se ve una caida en ingresos en los meses de marzo, junio y septiembre del 2017<i>")
+```
+Estos montos facturados provienen de dos ubicaciones, que asumiré que son las bodegas de Distribuidora, S.A. Lo siguiente es analizar si una ubicación factura más que la otra, o no hay diferencia.
+
+```{r}
+ingreso_por_ubicacion <- df %>% 
+  group_by(ANIO, MES, UBICACION) %>%
+  filter(TIPO.DE.ENTREGA!='DEVOLUCION') %>% 
+  summarise(FACTURACION = sum(Q))
+
+ingreso_por_ubicacion %>% 
+  hchart('column', hcaes(x = MES, y = FACTURACION, group = UBICACION)) %>%
+  hc_colors(c("#0073C2FF", "#EFC000FF")) %>% 
+  hc_title(text = "<b>Facturacion por ubicacion<b>")
+```
+
+
+## Análisis del crédito a clientes
+
+La empresa maneja tres tipos de crédito: a 30, 60 y 90 días. La siguiente gráfica muestra el monto en quetzales facturado mensualmente por tipo de crédito. Vemos que no existe una política clara en cuanto a cómo manejan en crédito con sus clientes, pues hay meses en donde se acredita más a 30 días y otros donde se acredita más a 60 días.
+
+```{r}
+credito <- df %>% 
+  group_by(ANIO, MES, CREDITO) %>%
+  filter(TIPO.DE.ENTREGA!='DEVOLUCION') %>% 
+  summarise(FACTURACION = sum(Q))
+
+credito %>% 
+  hchart('column', hcaes(x = MES, y = FACTURACION, group = CREDITO)) %>%
+  hc_colors(c('green','blue','orange')) %>% 
+  hc_title(text = "<b>Facturacion por dias de credito<b>")
+```
+
+### Ingresos reales a caja
+
+Al no tener una política clara las entradas de efectivo a lo largo del año no serán constantes y pueden sufrir caídas como lo muestra la siguiente gráfica. En ella se muestra la cantidad de dinero en Q. que entra cada mes, con base a lo facturado según su tipo de crédito.
+
+```{r}
+credito$MES <- as.numeric(credito$MES)
+credito$MES.INGRESO <- ifelse(test = credito$CREDITO=='30', yes = credito$MES+1,
+                              no = ifelse(test = credito$CREDITO=='60', yes = credito$MES+2,
+                                          no = credito$MES+3))
+proyeccion_caja <- credito %>% 
+  filter(MES.INGRESO>3 & MES.INGRESO<=12) %>% 
+  select(ANIO, MES.INGRESO, FACTURACION) %>% 
+  group_by(ANIO, MES.INGRESO) %>% 
+  summarise(INGRESO = sum(FACTURACION)) %>% 
+  mutate(MES.INGRESO = as.factor(MES.INGRESO))
+proyeccion_caja %>%
+  hchart('column', hcaes(x = MES.INGRESO, y = INGRESO)) %>% 
+  hc_title(text = "<b>Ingresos percibidos a caja<b>") %>% 
+  hc_subtitle(text = "<i>Se registra una caida en ingresos en los meses de mayo y septiembre<i>")
+```
+
+
+Mi primera recomendación es que se establezca una política de la proporción mensual de facturación para cada tipo de crédito. Es decir, que por ejemplo se facture un 60% con crédito a 30 días, 25% con crédito a 60 días y 15% con crédito a 90 días.
+
+
+## Análisis de uso de vehículos
+
+Existen actualmente en la empresa tres tipos de unidades para el transporte de mercadería: Paneles, Camiones pequeños y camiones grandes. El mayor número de viajes es con camión grande. Los camiones grandes y pequeños, hasta noviembre del 2017 realizaron 1200 y 600 viajes respectivamente, Sin embargo, los paneles se quedaron un poco abajo de 400, mi recomendación es que se tenga la meta de los 400 y que para esto se adquiera una panel más.
+
+```{r}
+vehiculos <- df %>% 
+  group_by(UNIDAD) %>% 
+  summarise(NO.VIAJES = n())
+
+# Bar chart del numero de viajes
+
+vehiculos %>%
+  hchart('column', hcaes(x = UNIDAD, y = NO.VIAJES)) %>% 
+  hc_title(text = "<b>No. de Viajes por tipo de unidad<b>") %>% 
+  hc_subtitle(text = "<i>Los camiones tipo Panel podrian llegar a 400 viajes<i>")
+```
+
+## Análisis de efectividad de pilotos
+
+Hay 9 pilotos en la empresa y cada uno maneja los tres tipos de unidades. Hay algunos que se desempeñan mejor con cierto tipo de unidad. Por lo que recomiendo que a estos se les asignen más viajes con esas unidades y se esta manera poder maximizar el número de viajes en total.
+
+```{r}
+pilotos <- df %>% 
+  group_by(PILOTO,UNIDAD) %>% 
+  summarise(VIAJES = n())
+
+pilotos %>% 
+  hchart('column', hcaes(x = PILOTO, y = VIAJES, group = UNIDAD)) %>%
+  hc_colors(c('green','blue','orange')) %>% 
+  hc_title(text = "<b>No. de Viajes por piloto y tipo de unidad<b>")
+```
+
+Adicionalmente considero buena idea proponer la meta de 250 viajes en total para todos los pilotos, y dar alguna bonificación por viaje extra cuando supere la meta antes del tiempo límite.
+
+```{r}
+pilotos2 <- pilotos %>% 
+  group_by(PILOTO) %>% 
+  summarise(VIAJES = sum(VIAJES))
+
+
+ggplot(data = pilotos2, mapping = aes(x = reorder(PILOTO,-VIAJES), y = VIAJES)) + geom_bar(stat = 'identity', fill='blue') +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 60, vjust = 1, hjust=1)) +
+  geom_text(aes(label=VIAJES), vjust=1.6, color="white", size=3.5) +
+  ggtitle("Total del viajes por piloto") + xlab("PILOTO")
+```
+
+## 80/20 de Clientes
+
+La empresa mantiene relación con 13 clientes, esta gráfica muestra el porcentaje de la facturación total a noviembre de 2017 para cada cliente. Vemos que solo a 4 de ellos se les factura casi el 50% del total que factura Distribuidora, S.A.
+```{r}
+clientes <- df %>% 
+  group_by(CLIENTE) %>% 
+  filter(TIPO.DE.ENTREGA!='DEVOLUCION') %>% 
+  summarise(FACTURADO = sum(Q))
+clientes$PORCENTAJE <- 100*clientes$FACTURADO/sum(clientes$FACTURADO)
+
+ggplot(data = clientes, mapping = aes(x = reorder(CLIENTE,-PORCENTAJE), y = PORCENTAJE)) + geom_bar(stat = 'identity',fill='pink')+
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 60, vjust = 1, hjust=1)) +
+  geom_text(aes(label=paste(round(PORCENTAJE,0),"%")), vjust=1.6, color="black", size=3.5)+
+  scale_y_continuous(labels = function(x) paste0(x, "%"))+
+  ggtitle("80/20 de Clientes", subtitle = "Porcentaje de ingresos al 11/2017") + xlab("CLIENTE")
+```
+
+Mi recomendación es que se les ofrezcan más beneficios a estos 4 clientes, como descuentos o que sean solo estos clientes los que tengan la opción de 90 días de crédito.
+
