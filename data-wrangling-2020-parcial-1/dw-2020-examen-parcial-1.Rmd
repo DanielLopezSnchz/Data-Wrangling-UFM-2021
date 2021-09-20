@@ -1,0 +1,161 @@
+---
+title: "dw-2020-parcial-1"
+author: "Tepi"
+date: "9/3/2020"
+output: rmarkdown::github_document
+always_allow_html: true
+
+---
+
+# Examen parcial
+
+Indicaciones generales:
+
+* Usted tiene el período de la clase para resolver el examen parcial.
+* La entrega del parcial, al igual que las tareas, es por medio de su cuenta de github, pegando el link en el portal de MiU.
+
+
+* Pueden hacer uso del material del curso e internet (stackoverflow, etc.). Sin embargo, si encontramos algún indicio de copia, se anulará el exámen para los estudiantes involucrados. Por lo tanto, aconsejamos no compartir las agregaciones que generen. 
+
+## Sección I: Preguntas teóricas.
+
+* Existen 10 preguntas directas en este Rmarkdown, de las cuales usted deberá responder 5. Las 5 a responder estarán determinadas por un muestreo aleatorio basado en su número de carné.
+
+* Ingrese su número de carné en  `set.seed()` y corra el chunk de R para determinar cuáles preguntas debe responder.
+
+
+```{r, echo=TRUE, cache=TRUE}
+
+set.seed(20190285) 
+v<- 1:10
+preguntas <-sort(sample(v, size = 6, replace = FALSE ))
+
+paste0("Mis preguntas a resolver son: ",paste0(preguntas,collapse = ", "))
+
+```
+
+
+### Listado de preguntas teóricas
+
+    
+2. Al momento de filtrar en SQL, ¿cuál keyword cumple las mismas funciones que el keyword `OR`  para filtrar uno o más elementos una misma columna?
+
+**IN**
+
+3. ¿Por qué en R utilizamos funciones de la familia apply (lapply,vapply) en lugar de utilizar ciclos?
+
+**Porque la ventaja de usar la familia apply es que aprovechamos que las operaciones sean vectorizadas. En vez de realizar operaciones elemento por elemento, la aplicamos en vectores, lo cual hace que sea más eficiente.**
+
+6. ¿Qué es un vector y en qué se diferencia en una lista en R?
+
+**Son objetos de una dimension que pueden contener valores numericos, logicos o de caracteres; sin embargo, no pueden contener datos de distinto tipo a la vez. Son los objetos mas utilizados en estructuras de datos. La diferencia de estos con las listas, es que las listas son objetos que contienen otros objetos en sus elementos, es decir, pueden contener vectores, matrices, fucniones, dataframes, etc. en cada uno de sus elementos.**
+
+7. ¿Qué pasa si quiero agregar una nueva categoría a un factor que no se encuentra en los niveles existentes?
+
+**Si se puede agregar otra categoria con la funcion `levels()`. Ejemplo:**
+```{r}
+categorias <- as.factor(iris$Species)
+levels(categorias) <- c(levels(categorias), "unknown") # le agregamos la categoria Unkown
+levels(categorias)
+
+```
+
+8. Si en un dataframe, a una variable de tipo `factor` le agrego un nuevo elemento que *no se encuentra en los niveles existentes*, ¿cuál sería el resultado esperado y por qué?
+    * El nuevo elemento
+    * `NA`
+
+**El resultado de ese elemento seria `NA`, pues no reconoce ninguna categoria que coincida con el del nuevo elemento.**
+```{r}
+mtcars$cyl <- as.factor(mtcars$cyl)
+x <- c(21, "10", 160, 110, 3.9, 2.5, 17, 0, 1, 4, 4)
+x <- rbind(mtcars, x)
+tail(x)
+```
+
+
+
+
+10. Si quiero obtener como resultado las filas de la tabla A que no se encuentran en la tabla B, ¿cómo debería de completar la siguiente sentencia de SQL?
+
+    * SELECT * FROM A LEFT OUTER JOIN B ON A.KEY = B.KEY WHERE A.col_name <> B.col_name
+  
+Extra: ¿Cuántos posibles exámenes de 5 preguntas se pueden realizar utilizando como banco las diez acá presentadas?
+(responder con código de R.)
+
+```{r}
+# Es un problema de combinaciones
+# ____n!______
+#   r!(n-r)!
+
+factorial(10)/(factorial(5)*factorial(10-5))
+
+```
+
+
+## Sección II Preguntas prácticas.
+
+
+* Conteste las siguientes preguntas utilizando sus conocimientos de R. Adjunte el código que utilizó para llegar a sus conclusiones en un chunk del markdown.
+
+A. De los clientes que están en más de un país,¿cuál cree que es el más rentable y por qué?
+
+B. Estrategia de negocio ha decidido que ya no operará en aquellos territorios cuyas pérdidas sean "considerables". Bajo su criterio, ¿cuáles son estos territorios y por qué ya no debemos operar ahí?
+
+
+
+
+
+
+
+
+### I. Preguntas teóricas
+
+
+## A
+
+```{r }
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+
+parcial_anonimo <- readRDS("parcial_anonimo.rds")
+
+por.numero.paises <- parcial_anonimo %>% group_by(Cliente, Pais) %>% summarise(n = n()) %>%  
+   group_by(Cliente) %>% summarise(n.pais= n()) %>% filter(n.pais > 1)
+
+clientes <- left_join(por.numero.paises,parcial_anonimo)
+clientes$Year <- year(clientes$DATE)
+clientes <- clientes %>% group_by(Cliente, Year) %>% summarise(Unidades = sum(`Unidades plaza`), Ventas.totales = sum(Venta))
+clientes.2020 <- clientes %>% filter(Year==2020)
+
+ggplot(data = clientes.2020, mapping = aes(x = reorder(Cliente, -Ventas.totales), y = Ventas.totales)) + 
+  geom_bar(stat="identity", fill = "blue") +
+  ggtitle("Total de Ventas por cliente", subtitle = "Anio: 2020")+ xlab("Clientes")+
+  theme_minimal()
+
+
+
+```
+El cliente mas rentable es a17a7558 en el año 2020, por lo tanto es al que mas importancia hay que darle.
+
+
+
+## B
+
+Considero que ya no se debe trabajar en aquellos territorios cuyas perdidas superen el 75% desde 2018 a 2020. Haciendo el filtro, obtenemos 79 territorios con los que debemos dejar de trabajar por perdidas considerables. Aqui se muestran 15 de ellas.
+
+```{r }
+
+por.territorio <- parcial_anonimo %>% 
+  group_by(Territorio, Year=year(DATE)) %>% 
+  summarise(Total.venta = sum(Venta)) %>% 
+  filter(Year!=2019)
+
+perdidas <- por.territorio %>% group_by(Territorio) %>% summarise(perdida=1 - Total.venta[2]/Total.venta[1])
+perdidas <- perdidas[order(perdidas$perdida, decreasing = T),]
+perdidas <- perdidas %>% filter(perdida>= 0.75)
+
+head(perdidas,15)
+
+```
+
