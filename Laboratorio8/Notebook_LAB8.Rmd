@@ -1,0 +1,254 @@
+---
+title: "Laboratorio 8"
+output:
+  rmarkdown::github_document: default
+  html_notebook: default
+always_allow_html: yes
+---
+
+# Feature Engineering
+
+```{r load libraries and data, echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
+library(dplyr)
+library(gensvm)
+data <- read.csv("titanic.csv")
+data_MD <- read.csv("titanic_MD.csv")
+```
+
+## **Parte 1**
+
+### 1. Reporte detallado de missing data para todas las columnas. (5%)
+
+```{r}
+summary(data_MD)
+```
+Viendo el contenido de las columnas vemos que hay columnas categoricas que están como numericas. El primer paso antes de detallar los valores faltantes será corregir las columnas a su debido tipo de datos.
+
+```{r}
+data_MD <- data_MD %>% mutate(Survived = factor(Survived),
+                              Pclass = factor(Pclass),
+                              Sex = factor(Sex),
+                              SibSp = factor(SibSp),
+                              Parch = factor(Parch),
+                              Embarked = factor(Embarked)) %>% 
+  select(-PassengerId, -Name)
+summary(data_MD)
+```
+
+* **Sex:** 51 observaciones faltantes (?)
+* **Age:** 25 observaciones faltantes (NA's)
+* **SibSp:** 3 observaciones faltantes (NA's)
+* **Parch:** 12 observaciones faltantes (NA's)
+* **Fare:** 8 observaciones faltantes (NA's)
+* **Embarked:** 12 observaciones faltantes (' ')
+
+### 2. Para cada columna especificar qué tipo de modelo se utilizará (solo el nombre y el porqué) y qué valores se le darán a todos los missing values. (Ej. Imputación sectorizada por la moda, bins, y cualquier otro método visto anteriormente). (10%)
+
+* Para la variable ```Sex``` se utilizará un modelo de regresión logística, pues el 28% de las observaciones no tienen sexo especificado, y llenar los faltantes con la moda sesgaría mucho la variable.
+* Para ```Age``` se utilizará una imputación por la mediana, pues la distribución de la variable es normal con un poco de sesgo positivo. Utilizando la media para las 25 observaciones faltantes evitará que se sesgue más la distribución.
+* Para ```SibSp``` (número de hermanos/pareja abordo) se utilizará una imputación por la moda, pues es una variable que la estamos tratando como categórica, y además, solo son 3 observaciones faltantes de 183.
+* Para ```Parch``` (número de hijos/padres abordo) se utilizará igualmente una imputación por la moda, pues es variable categórica y la razón de valores faltantes es igualmente baja (6.5%), por lo que no sesga la distribución demasiado.
+* Para ```Fare``` se utilizará una imputación por la mediana, debido a que es una distribución altamente sesgada por valores atípicos. La mediana evitará que los valores imputados no sean sesgados por los atípicos.
+* Para ```Embarked``` se utilizará una imputación por la moda, pues es categórica y los valores faltantes representan un 6.5% de las observaciones.
+
+### 3. Reporte de qué filas están completas (5%)
+
+* **Survived** *0: No y 1: Si*
+* **Pclass** *Clase en que viajaba*
+* **Ticket** *Número de ticket*
+* **Cabin**  *Número de cabina*
+
+Las columnas de ID y nombre del pasajero también están completas pero no son relevantes para el análisis.
+
+### 4.	Utilizar los siguientes métodos para cada columna que contiene missing values: (50%)
+  a.	Imputación general (media, moda y mediana)
+  b.	Modelo de regresión lineal
+  c.	Outliers: Uno de los dos métodos vistos en clase (Standard deviation approach o Percentile approach)
+
+#### Sex
+```{r}
+# Imputacion por moda
+Sex_mode <- ifelse(data_MD$Sex=='?', 
+                   yes = '3',
+                   no = data_MD$Sex)
+table(Sex_mode)
+# Modelo de regresion
+data_for_regression <- data_MD %>% filter(Sex!='?') %>% 
+  select(Survived,Pclass,Age,Fare,Embarked,Sex) %>% 
+  na.omit()
+
+linreg_sex <- glm(formula = Sex~.,
+                  data = data_for_regression, family = binomial)
+new_data <- data_MD[data_MD$Sex=='?',]
+probabilities <- linreg_sex %>% predict(new_data, type="response")
+predicted_sex <- ifelse(probabilities>0.5,"female","male")
+table(predicted_sex)
+```
+#### Age
+```{r}
+# Imputacion por media
+Age_mean <- ifelse(is.na(data_MD$Age),
+                   yes = mean(data_MD$Age, na.rm = T),
+                   no = data_MD$Age)
+# Imputacion por mediana
+Age_median <- ifelse(is.na(data_MD$Age),
+                   yes = median(data_MD$Age, na.rm = T),
+                   no = data_MD$Age)
+# Regresion lineal
+linreg_age <- lm(Age~Survived+Pclass+Sex+SibSp+Parch+Fare+Embarked,
+                 data = data_MD)
+Age_linreg <- predict(linreg_age, data_MD)
+# Outliers - Percentile aproach
+percentiles <- quantile(data_MD$Age,na.rm = T)
+Age_outliers <- ifelse(data_MD$Age>percentiles[5],
+                       yes = percentiles[5],
+                       no = data_MD$Age)
+```
+
+#### SibSp
+```{r}
+# Imputacion por moda
+SibSp_mode <- ifelse(is.na(data_MD$SibSp), 
+                   yes = '0',
+                   no = data_MD$SibSp)
+```
+
+#### Parch
+```{r}
+# Imputacion por moda
+Parch_mode <- ifelse(is.na(data_MD$Parch), 
+                   yes = '0',
+                   no = data_MD$Parch)
+```
+
+#### Fare
+```{r}
+# Imputacion por media
+Fare_mean <- ifelse(is.na(data_MD$Fare),
+                   yes = mean(data_MD$Fare, na.rm = T),
+                   no = data_MD$Fare)
+# Imputacion por mediana
+Fare_median <- ifelse(is.na(data_MD$Fare),
+                   yes = median(data_MD$Fare, na.rm = T),
+                   no = data_MD$Fare)
+# Regresion lineal
+linreg_fare <- lm(Fare~Survived+Pclass+Sex+SibSp+Parch+Age+Embarked,
+                 data = data_MD)
+Fare_linreg <- predict(linreg_fare, data_MD)
+# Outliers - Percentile aproach
+percentiles <- quantile(data_MD$Fare,na.rm = T)
+Fare_outliers <- ifelse(data_MD$Fare>percentiles[5],
+                       yes = percentiles[5],
+                       no = data_MD$Fare)
+```
+
+#### Embarked
+```{r}
+# Imputacion por moda
+Embarked_mode <- ifelse(data_MD$Embarked=='', 
+                   yes = '0',
+                   no = data_MD$Embarked)
+```
+
+### 5.	Al comparar los métodos del inciso 4 contra “titanic.csv”, ¿Qué método (para cada columna) se acerca más a la realidad y por qué? (20%)
+
+```{r}
+# Llenando los datos de las columnas de data_MD
+data_MD$Age <- ifelse(is.na(data_MD$Age),
+                   yes = median(data_MD$Age, na.rm = T),
+                   no = data_MD$Age)
+data_MD$SibSp <- ifelse(is.na(data_MD$SibSp), 
+                   yes = '0',
+                   no = data_MD$SibSp)
+data_MD$Parch <- ifelse(is.na(data_MD$Parch), 
+                   yes = '0',
+                   no = data_MD$Parch)
+data_MD$Fare <- ifelse(is.na(data_MD$Fare),
+                   yes = median(data_MD$Fare, na.rm = T),
+                   no = data_MD$Fare)
+data_MD$Embarked <- ifelse(data_MD$Embarked=='', 
+                   yes = '0',
+                   no = data_MD$Embarked)
+
+data_for_regression <- data_MD %>% filter(Sex!='?') %>% 
+  select(Survived,Pclass,Age,SibSp,Parch,Fare,Embarked,Sex)
+linreg_sex <- glm(formula = Sex~.,
+                  data = data_for_regression, family = binomial)
+new_data <- data_MD[data_MD$Sex=='?',]
+
+```
+
+comparando con ```titanic.csv```:
+
+```{r}
+summary(data$Age)
+summary(data_MD$Age)
+```
+```{r}
+summary(data$Fare)
+summary(data_MD$Fare)
+```
+Las variables numericas se acoplan bastante bien a la data original. La imputación por la media sirvió para que no se sesguen las variables.
+
+### 6. Conclusiones (10%)
+
+Lo primero para tratar missing values es asegurarse que todas las variables estén en el tipo de dato que corresponden, si hay variables categoricas que aparecen como numericas hay que codificarlas con la función ```factor()``` y luego hacer una tabla para ver cuantas observaciones tiene cada categoría. Para las variables numéricas hay que ver a qué distribución se acoplan para decidir qué tipo de imputación se utilizará, pues si la distribución es muy sesgada, una imputación por la media no será la adecuada y podrá darnos resultados alejados de la realidad.
+
+## **Parte 2**
+
+### 1.	Luego del pre-procesamiento de la data con Missing Values, normalice las columnas numéricas por los métodos: (50%)
+  a.	Standarization
+  b.	MinMaxScaling
+  c.	MaxAbsScaler
+  
+```{r}
+# Standaization
+Age_st <- (data_MD$Age - mean(data_MD$Age))/sd(data_MD$Age)
+Fare_st <- (data_MD$Fare - mean(data_MD$Fare))/sd(data_MD$Fare)
+
+# MinMax Scaling
+Age_minmax <- (data_MD$Age - min(data_MD$Age))/(max(data_MD$Age)-min(data_MD$Age))
+Fare_minmax <- (data_MD$Fare - min(data_MD$Fare))/(max(data_MD$Fare)-min(data_MD$Fare))
+
+# MaxAbs Scaling
+Age_maxabs <- data_MD$Age/max(abs(data_MD$Age))
+Fare_maxabs <- data_MD$Fare/max(abs(data_MD$Fare))
+```
+
+### 2. Compare los estadísticos que considere más importantes para su conclusión y compare contra la data completa de “titanic.csv” (deberán de normalizar también). (50%)
+```{r}
+## Age
+# Standarization
+Age_st2 <- (data$Age - mean(data$Age))/sd(data$Age)
+summary(Age_st)
+summary(Age_st2)
+# Normalization
+Age_minmax2 <- (data$Age - min(data$Age))/(max(data$Age)-min(data$Age))
+summary(Age_minmax)
+summary(Age_minmax2)
+# MaxAbs Scale
+Age_maxabs2 <- data$Age/max(abs(data$Age))
+summary(Age_maxabs)
+summary(Age_maxabs2)
+```
+```{r}
+## Fare
+# Standarization
+Fare_st2 <- (data$Fare - mean(data$Fare))/sd(data$Fare)
+summary(Fare_st)
+summary(Fare_st2)
+# Normalization
+Fare_minmax2 <- (data$Fare - min(data$Fare))/(max(data$Fare)-min(data$Fare))
+summary(Fare_minmax)
+summary(Fare_minmax2)
+# MaxAbs Scale
+Fare_maxabs2 <- data$Fare/max(abs(data$Fare))
+summary(Fare_maxabs)
+summary(Fare_maxabs2)
+```
+
+
+
+
+
+
